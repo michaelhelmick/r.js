@@ -89,7 +89,7 @@ var requirejs, require, define;
         };
 
         exists = function (fileName) {
-            return path.existsSync(fileName);
+            return fs.existsSync(fileName);
         };
 
 
@@ -2253,7 +2253,7 @@ var requirejs, require, define;
         //Indicate a the module is in process of loading.
         context.scriptCount += 1;
 
-        if (path.existsSync(url)) {
+        if (fs.existsSync(url)) {
             contents = fs.readFileSync(url, 'utf8');
 
             contents = req.makeNodeWrapper(contents);
@@ -8252,7 +8252,7 @@ function (file,           pragma,   parse) {
             if (require._isSupportedBuildUrl(url)) {
                 //Adjust the URL if it was not transformed to use baseUrl.
                 url = normalizeUrlWithBase(context, moduleName, url);
-                
+
                 //Save the module name to path  and path to module name mappings.
                 layer.buildPathMap[moduleName] = url;
                 layer.buildFileToModule[url] = moduleName;
